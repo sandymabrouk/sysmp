@@ -19,7 +19,6 @@ function Result(myresult) {
             for (var key in myresult[i]) {
                 if (col.indexOf(key) === -1) {
                     col.push(key);
-					
                 }
             }
         }
@@ -41,28 +40,11 @@ function Result(myresult) {
 
             for (var j = 0; j < col.length; j++) {
                 var tabCell = tr.insertCell(-1);
-				
-				input = document.createElement("input");
-				input = addAttribute(input, "name", col[j]);
-				input = addAttribute(input, "value", myresult[i][col[j]]);
-				input = addAttribute(input, "form", myresult[i][col[0]]);
-				
-				
-				th.innerHTML = col[i];
-                
-				tabCell.appendChild(input);
+                tabCell.innerHTML = myresult[i][col[j]];
             }
         }
 
         var divContainer = document.getElementById("showData");
         divContainer.innerHTML = "";
         divContainer.appendChild(table);
-}
-
-
-function addAttribute(element, att, value){
-att = document.createAttribute(att);
-att.value = value;
-element.setAttributeNode(att);
-return element;
 }
