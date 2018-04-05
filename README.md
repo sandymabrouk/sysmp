@@ -10,7 +10,7 @@ Developed By int elligence; team.
 
 # usage
 ```
-Start by installing the database `ins.php`
+Start by installing the database `install.php`
 Add new educational degrees `addDegree.html`
 Register a new student `register.html`
 ```
