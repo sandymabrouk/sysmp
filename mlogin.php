@@ -1,36 +1,33 @@
-<?php 
-//Hassan hossam
+<?php
+ 
+//Hassan hossam & Sandy mabrouk
 
-$inuser = $_POST['username'] ;
-$inpass = $_POST['password'] ;
+// Inialize session
+session_start();
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "sysmp";
+if (isset($_POST['login'])) {
+	require('db.php');
+	$inuser = $_POST['username'] ;
+	$inpass = $_POST['password'] ;
+	$sql = "SELECT username, password FROM admin WHERE username = '$inuser' AND password = '$inpass' ";
+	$result = $conn->query($sql);
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-
-$sql = "SELECT code, password FROM students WHERE code = '$inuser' AND password = '$inpass' ";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0)
- { echo "logged in"; }
-else 
-	{ echo "try again";}
+	if ($result->num_rows > 0) { 
+	$_SESSION['username']=$inuser; // Set username session variable 
+    $_SESSION['type']="admin";
+	$_SESSION['access']="*";
+	echo "logged in"; 
+   header("location: admin.php");
+   } else { echo "try again";}
+	
 
 $conn->close();
-
-
-
-
-
-
-
+}
 
 ?>
+
+
+
+
+
+

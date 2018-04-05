@@ -1,0 +1,42 @@
+<!DOCTYPEhtml>
+<html lang="eg">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet"  href="login/css/bootstrap.css"/>
+<style>
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+</style>
+<link rel="stylesheet"  href="login/css/rtl.css"/>
+<script src="login/js/html5shiv.min.js"></script>
+<script src="login/js/respond.matchmedia.addListener.min.js"></script>
+</head>
+<script src="login/js/bootstrap.min.js"></script>
+<script src="login/jquery-3.3.1.min.js"></script>
+<body >
+<div class="page">
+<div class="container">
+<div class="login">
+<form class="form-signin" action="mlogin.php" method="Post">
+       <h2 class="form-signin-heading"> Sign in</h2>
+        <label for="inputEmail" class="sr-only">Code</label>
+        <input name="username" type="Code" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <input name="login" value="Sign in" class="btn btn-lg btn-primary btn-block" type="submit">
+        </form>
+        </div>
+</body>
+</html>
