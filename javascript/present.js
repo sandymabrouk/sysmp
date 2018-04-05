@@ -24,7 +24,7 @@ function Result(myresult) {
         }
 
         var table = document.createElement("table");
-
+		table = addAttribute(table, "class", "table table-hover table-bordered table-condensed table-striped");
 
         var tr = table.insertRow(-1);                   
 
@@ -47,4 +47,11 @@ function Result(myresult) {
         var divContainer = document.getElementById("showData");
         divContainer.innerHTML = "";
         divContainer.appendChild(table);
+}
+
+function addAttribute(element, att, value){
+att = document.createAttribute(att);
+att.value = value;
+element.setAttributeNode(att);
+return element;
 }

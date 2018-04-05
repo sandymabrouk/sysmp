@@ -1,0 +1,44 @@
+<!DOCTYPEhtml>
+<html lang="eg">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet"  href="css/bootstrap.css"/>
+<style>
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+</style>
+<link rel="stylesheet"  href="css/rtl.css"/>
+<script src="js/html5shiv.min.js"></script>
+<script src="js/respond.matchmedia.addListener.min.js"></script>
+</head>
+<script src="js/bootstrap.min.js"></script>
+<script src="jquery-3.3.1.min.js"></script>
+<body >
+<div class="page">
+<div class="container">
+<div class="login">
+<form class="form-signin" action="mlogin.php" method="Post">
+       <h2 class="form-signin-heading"> Sign in</h2>
+        <label for="inputEmail" class="sr-only">Code</label>
+        <input name="username" type="Code" id="inputEmail" class="form-control" placeholder="Code"  required autofocus>
+        
+
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <input name="login" value="Sign in" class="btn btn-lg btn-primary btn-block" type="submit">
+        </form>
+        </div>
+</body>
+</html>
