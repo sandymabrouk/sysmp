@@ -11,8 +11,10 @@ Developed By int elligence; team.
 # usage
 ```
 Start by installing the database `install.php`
-Add new educational degrees `addDegree.html`
-Register a new student `register.html`
+Go to main page to login
+username: admin
+password: admin
+Start playing around
 ```
 
 # int elligence; team memebers
