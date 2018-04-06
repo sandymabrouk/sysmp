@@ -225,6 +225,25 @@ if ($conn -> query($sql_courses_rounds) == TRUE)
 else {echo "error " . $conn -> error . "<br>";}
 //-------------
 
+//Add Admin
+// Create connection
+$conn = new mysqli($server, $username, $password, $database);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "INSERT INTO admin (username, password)
+VALUES ('admin', 'admin')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+
+//----------------------------------------------
 
 $conn -> close();
 
