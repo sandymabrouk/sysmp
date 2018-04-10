@@ -19,9 +19,7 @@
   <link href="../style/css/myStyle.css" rel="stylesheet">
   
 </head>
-<body 
-      <?php require('../../auth.php'); ?>
-      class="" onload="getJson('../../json/professors.php');">
+<body class="" onload="getJson('../../json/professors.php');">
   <div class="container">
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Register Degree</div>

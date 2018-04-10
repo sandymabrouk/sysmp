@@ -3,7 +3,6 @@
 if (isset($_POST["add_degree"])){
 
 require("../../db.php");
-	require("../../auth.php"); 
 
 
 $course = $_POST["course"];

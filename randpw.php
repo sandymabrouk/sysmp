@@ -1,7 +1,7 @@
 <?php
 
 // Nour Kilany
-require('auth.php');
+
 function randomPassword($length, $count, $characters){
 
 // $length - the length of the generated password

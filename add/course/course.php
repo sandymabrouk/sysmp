@@ -2,8 +2,7 @@
 // Abdelrahman Helmi & Seif Elsallamy
 if (isset($_POST["course_submit"])){
 require ('randpw.php');
-    require('../../auth.php')
-    
+
 $servername = "localhost";
 $username = "root";
 $password = "";
