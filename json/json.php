@@ -8,7 +8,7 @@ $password = "";
 $dbname = "sysmp";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
-$sql = "SELECT * FROM $tableName";
+$sql = "SELECT $name, $email, $semester, $course FROM $tableName";
 $result = $conn->query($sql);
 $data;
 if ($result->num_rows > 0) {
