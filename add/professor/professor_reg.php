@@ -3,7 +3,6 @@
 if (isset($_POST["reg_submit"])){
 require('../../randpw.php');
 require('../../db.php');
-	require('../../auth.php'); 
 
 $name = $_POST["reg_name"];
 $email = $_POST["reg_email"];
