@@ -21,7 +21,7 @@ if ($conn -> query($sql) == FALSE)
 
 $conn = new mysqli($server, $username, $password , $database);
 
-require('auth.php'); 
+
 
 //students_score
 $sql_student_score = "CREATE TABLE students_score(
