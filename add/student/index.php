@@ -42,7 +42,9 @@ function addToSelect(r){
   </script>
 </head>
 
-<body class="" onload="getJson('../../json/degrees.php');">
+<body 
+      <?php require('../../auth.php') ; ?>
+      class="" onload="getJson('../../json/degrees.php');">
   <div class="container">
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Register new student</div>
