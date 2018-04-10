@@ -1,6 +1,7 @@
 <?php
 // Nour Kilany 
 require('db.php');
+require('../../auth.php') ; 
 $code = $_POST['code'];
 $course_id = $_POST['course_id'];
 $score = $_POST['score'];
