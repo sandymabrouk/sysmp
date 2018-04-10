@@ -38,7 +38,9 @@
   </script>
 </head>
 
-<body onload="getJson('json/professors.php')">
+<body 
+      <?php require('../../auth.php') ; ?>
+      onload="getJson('json/professors.php')">
 	<div class="container">
 		<div class="card card-register mx-auto mt-5">
 		<div class="card-header">New Course</div>
