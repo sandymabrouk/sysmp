@@ -20,6 +20,7 @@
 </head>
 
 <body>
+	<?php require('../../auth.php') ; ?>
   <div class="container">
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Add new professor</div>
