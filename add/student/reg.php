@@ -14,10 +14,9 @@ $semester = $_POST["reg_semester"];
 $campus = $_POST["reg_campus"];
 $cohort = $_POST["reg_cohort"];
 
-$pass = randomPassword(8,1,"lower_case,upper_case,numbers,special_symbols")[0];
 
-$sql = "INSERT INTO students (name, email, birthdate, semester, campus, cohort, mobile, address, password, degree_id)
-VALUES ('$name', '$email', '$date', '$semester', '$campus', '$cohort', '$mobile', '$address', '$pass', '$degree')";
+$sql = "INSERT INTO students (name, email, birthdate, semester, campus, cohort, mobile, address, , degree_id)
+VALUES ('$name', '$email', '$date', '$semester', '$campus', '$cohort', '$mobile', '$address', '$degree')";
 
 
 
