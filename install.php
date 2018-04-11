@@ -131,7 +131,7 @@ semester CHAR(50) NOT NULL,
 campus CHAR(30) NOT NULL ,
 email CHAR(50) NOT NULL,
 mobile CHAR(50) NOT NULL,
-// Nour kilany edit delete password
+// Nour kilany edit deleted password
 address CHAR(100) NOT NULL,
 birthdate DATETIME NOT NULL,
 cohort CHAR (30) NOT NULL,
