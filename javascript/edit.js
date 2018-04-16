@@ -1,4 +1,4 @@
-function getJson(url){
+function getJson(url, action){
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
@@ -6,7 +6,7 @@ function getJson(url){
 				for (i=0; i<myArr.length;i++){
 					myArr[i]["Edit"] = "Edit";
 				}
-				Result(myArr);
+				Result(myArr, action);
 			}
 		};
 		xmlhttp.open("GET", url, true);
@@ -15,7 +15,7 @@ function getJson(url){
 	
 
 
-function Result(myresult) {
+function Result(myresult, action) {
 		console.log(myresult);
         var col = [];
         for (var i = 0; i < myresult.length; i++) {
@@ -76,7 +76,7 @@ function Result(myresult) {
 				
 				form = document.createElement("form");
 				form = addAttribute(form, "id", myresult[i][col[0]]);
-				form = addAttribute(form, "action", "students.php");
+				form = addAttribute(form, "action", action);
 				form = addAttribute(form, "method", "POST");
 				tabCell.appendChild(form);
 					
