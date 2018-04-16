@@ -1,6 +1,6 @@
 <?php
 //Sandy Mabrouk
-function displayTable($tableName) {
+function displayTable($tableName, $variables) {
 
 $servername = "localhost";
 $username = "root";
@@ -8,7 +8,7 @@ $password = "";
 $dbname = "sysmp";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
-$sql = "SELECT * FROM $tableName";
+$sql = "SELECT $variables FROM $tableName";
 $result = $conn->query($sql);
 $data;
 if ($result->num_rows > 0) {
@@ -25,4 +25,5 @@ $conn->close();
 
 }
 ?>
+
 
