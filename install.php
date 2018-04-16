@@ -11,6 +11,14 @@ $conn = new mysqli($server, $username, $password);
 	die($error);
 	}
 
+$sql = "DROP DATABASE sysmp";
+
+if ($conn -> query($sql) == FALSE)
+	{
+	echo "error " . $conn -> error . "<br>";
+	}
+
+
 $sql = "CREATE DATABASE sysmp";
 
 if ($conn -> query($sql) == FALSE)
@@ -132,7 +140,7 @@ address CHAR(100) NOT NULL,
 birthdate DATETIME NOT NULL,
 cohort CHAR (30) NOT NULL,
 PRIMARY KEY (code)
-)"; //Nour Kilany
+)"; //Edited By Nour kilany
 
 if ($conn -> query($sql_students) == TRUE)
 	{
@@ -157,7 +165,6 @@ order_id int,
 code int,
 amount int NOT NULL,
 PRIMARY KEY (order_id),
-FOREIGN KEY (degree_id) REFERENCES degrees(degree_id),
 FOREIGN KEY (code) REFERENCES students(code)
 )"; 
 
@@ -225,6 +232,7 @@ $sql_students_degrees = "CREATE TABLE students_degrees(
 students_degrees_id int NOT NULL AUTO_INCREMENT,
 degree_id int,
 code int,
+year char(40),
 PRIMARY KEY (students_degrees_id),
 FOREIGN KEY (degree_id) REFERENCES degrees(degree_id),
 FOREIGN KEY (code) REFERENCES students(code)
