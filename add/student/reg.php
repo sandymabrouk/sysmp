@@ -13,9 +13,10 @@ $email = $_POST["reg_email"];
 //$semester = $_POST["reg_semester"];
 $campus = $_POST["reg_campus"];
 $cohort = $_POST["reg_cohort"];
+$year = $_POST["year"];
 $code = $_POST["identity_number"];
 
-//$pass = randomPassword(8,1,"lower_case,upper_case,numbers,special_symbols")[0]; //Nour Kilany
+//$pass = randomPassword(8,1,"lower_case,upper_case,numbers,special_symbols")[0];
 
 $sql = "INSERT INTO students (code, name, email, birthdate, campus, cohort, mobile, address)
 VALUES ('$code', '$name', '$email', '$date', '$campus', '$cohort', '$mobile', '$address')";
@@ -28,8 +29,8 @@ if (mysqli_query($conn, $sql)) {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
 
-$sql = "INSERT INTO students_degrees (code, degree_id)
-VALUES ('$code', '$degree')";
+$sql = "INSERT INTO students_degrees (code, degree_id, year)
+VALUES ('$code', '$degree', '$year')";
 
 
 
@@ -47,8 +48,8 @@ if ($result->num_rows > 0) {
     // adding student scores
     while($row = $result->fetch_assoc()) {
         $course = $row["course_id"];
-		$sql = "INSERT INTO students_score (code, course_id)
-VALUES ('$code', '$course')";
+		$sql = "INSERT INTO students_score (code, course_id, score)
+VALUES ('$code', '$course', '')";
 
 if (mysqli_query($conn, $sql)) {
     echo "success";
