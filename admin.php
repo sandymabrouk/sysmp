@@ -50,6 +50,13 @@
           </a>
         </li>
       
+	  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link" onclick="s('add/payment/index.php')" ><!--<a class="nav-link" href="tables.html">-->
+            <i class="fa fa-fw fa-wrench"></i>
+            <span class="nav-link-text">Add new payment</span>
+          </a>
+       </li>
+		
 		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link" onclick="s('add/course/index.php')" ><!--<a class="nav-link" href="tables.html">-->
             <i class="fa fa-fw fa-wrench"></i>
@@ -57,19 +64,28 @@
           </a>
         </li>
 	  
-	  		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+	  	<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link" onclick="s('add/degree/index.php')" ><!--<a class="nav-link" href="tables.html">-->
             <i class="fa fa-fw fa-wrench"></i>
             <span class="nav-link-text">Add new degree</span>
           </a>
         </li>
 		
-			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+		
+		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" onclick="s('edit/student/score/index.php')" ><!--<a class="nav-link" href="tables.html">-->
+            <i class="fa fa-fw fa-wrench"></i>
+            <span class="nav-link-text">Edit student score</span>
+          </a>
+        </li>
+		
+		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link" onclick="s('edit/student/index.php')" ><!--<a class="nav-link" href="tables.html">-->
             <i class="fa fa-fw fa-wrench"></i>
             <span class="nav-link-text">Edit students data</span>
           </a>
         </li>
+		
 		
 		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link" onclick="s('present/students/index.php')" ><!--<a class="nav-link" href="tables.html">-->
