@@ -36,6 +36,7 @@ $sql_student_score = "CREATE TABLE students_score(
 score_id int NOT NULL AUTO_INCREMENT,
 code int,	
 course_id int,
+year CHAR(30),
 score CHAR(30),
 PRIMARY KEY (score_id)
 )"; 
@@ -232,7 +233,6 @@ $sql_students_degrees = "CREATE TABLE students_degrees(
 students_degrees_id int NOT NULL AUTO_INCREMENT,
 degree_id int,
 code int,
-year char(40),
 PRIMARY KEY (students_degrees_id),
 FOREIGN KEY (degree_id) REFERENCES degrees(degree_id),
 FOREIGN KEY (code) REFERENCES students(code)
