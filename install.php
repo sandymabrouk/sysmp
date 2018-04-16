@@ -132,7 +132,7 @@ address CHAR(100) NOT NULL,
 birthdate DATETIME NOT NULL,
 cohort CHAR (30) NOT NULL,
 PRIMARY KEY (code)
-)"; 
+)"; //Nour Kilany
 
 if ($conn -> query($sql_students) == TRUE)
 	{
