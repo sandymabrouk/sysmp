@@ -59,6 +59,14 @@ function addToSelect(r){
 		  <div class="form-group">
             <div class="form-row">
               <div class="col-md-12">
+                <label for="exampleInputEmail">Identity number</label>
+                <input name="identity_number" class="form-control" id="exampleInputEmail" autocomplete="off" type="number" aria-describedby="identity_numberHelp" placeholder="Enter identity number" required>
+              </div>
+            </div>
+          </div>
+		  <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-12">
                 <label for="exampleInputEmail">Email address</label>
                 <input name="reg_email" class="form-control" id="exampleInputEmail" autocomplete="off" type="email" aria-describedby="emailHelp" placeholder="Enter email address" required>
               </div>
@@ -114,19 +122,7 @@ function addToSelect(r){
 				</select>
               </div>
               <div class="col-md-6">
-                <label for="exampleInputSemester">Semester</label>
-                <select name="reg_semester" class="form-control">
-				  <option value="1">1</option>
-				  <option value="2">2</option>
-				  <option value="3">3</option>
-				  <option value="4">4</option>
-				  <option value="5">5</option>
-				  <option value="6">6</option>
-				  <option value="7">7</option>
-				  <option value="8">8</option>
-				  <option value="9">7</option>
-				  <option value="10">10</option>
-				</select>
+                
               </div>
             </div>
           </div>

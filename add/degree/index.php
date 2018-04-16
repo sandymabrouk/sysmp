@@ -2,7 +2,7 @@
 <html lang="en">
 
 <!-- Done by Alaa Eid Hassan -->
-<!-- with Doha Dwedar -->
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,9 +17,10 @@
   <!-- Custom styles for this template-->
   <link href="../style/css/sb-admin.css" rel="stylesheet">
   <link href="../style/css/myStyle.css" rel="stylesheet">
+  <script src="../../javascript/options.js"></script>
   
 </head>
-<body class="" onload="getJson('../../json/professors.php');">
+<body onload="op('professor1[]','../../json/professors.php','professor_email','name'); op('professor2[]','../../json/professors.php','professor_email','name')">
   <div class="container">
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Register Degree</div>
@@ -27,9 +28,9 @@
         <form action="addDegree.php" method="post"><!-- to be changed -->
 			<div class="form-group">
 				<div class="switch-field">
-				  <input type="radio" id="switch_left" name="degree_type" value="MASTER" checked />
+				  <input type="radio" id="switch_left" name="degree_type" value="master" checked/>
 				  <label for="switch_left">Master</label>
-				  <input type="radio" id="switch_right" name="degree_type" value="PHD" />
+				  <input type="radio" id="switch_right" name="degree_type" value="phd" />
 				  <label for="switch_right">Ph.D.</label>
 				</div>
 			</div>
@@ -37,7 +38,7 @@
             <div class="form-row">
               <div class="col-md-6">
                 <label for="degree_name">Degree Name</label>
-                <input class="form-control" name="degree_name" id="degree_name" type="text" aria-describedby="nameHelp" placeholder="Enter degree name" required>
+                <input class="form-control" id="degree_name" name="degree_name" type="text" aria-describedby="nameHelp" placeholder="Enter degree name" required>
               </div>
               <div class="col-md-6">
                 <label for="degree_price">Degree Price</label>
@@ -46,65 +47,62 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="number_of_semesters">Number of Semesters</label>
-            <input class="form-control" id="number_of_semesters" type="number" min="1" placeholder="Number of semesters" value="1" onchange="getJson('json/professors.php');" required>
+            <label for="number_of_terms">Number of Rounds</label>
+            <input onchange="op('professor1[]','../../json/professors.php','professor_email','name'); op('professor2[]','../../json/professors.php','professor_email','name');" class="form-control" id="number_of_terms" name="rounds" type="number" min="1" placeholder="Number of terms" value="1" required>
           </div>
+		  
+		 
+		  
 		  <div class="form-group" id="courses_group">
 			  <hr>
 			  <div class="form-group">
-				<label for="number_of_semesters">- Semester 1</label>
+				<label for="number_of_term">- Round 1</label>
 			  </div>
-			  <div class="form-group">
-				<div class="form-row">
-				  <div class="col-md-6">
-					<label >Course title</label>
-					<input class="form-control" name="course[]" type="text" required>
-				  </div>
-				  <div class="col-md-6">
-					<label >By professor</label>
-					<select id="select_professor" name="professor[]" class="form-control"><option value="">---</option></select>
-				  </div>
-				</div>
+			  <div class="form-group" id="dateGroup">
+					<div class="form-row">
+					  <div class="col-md-6">
+						<label >Start Date</label>
+						<input class="form-control" name="start_date[]" type="date" required>
+					  </div>
+					  <div class="col-md-6">
+						<label >End Date</label>
+						<input class="form-control" name="end_date[]" type="date" required>
+					  </div>
+					</div>
 			  </div>
-			  <div class="form-group">
-				<div class="form-row">
-				  <div class="col-md-6">
-					<input class="form-control" name="course[]" type="text" required>
-				  </div>
-				  <div class="col-md-6">
-					<select id="select_professor" name="professor[]" class="form-control"><option value="">---</option></select>
-				  </div>
-				</div>
-			  </div><div class="form-group">
-				<div class="form-row">
-				  <div class="col-md-6">
-					<input class="form-control" name="course[]" type="text" required>
-				  </div>
-				  <div class="col-md-6">
-					<select id="select_professor" name="professor[]" class="form-control"><option value="">---</option></select>
-				  </div>
-				</div>
-			  </div>
-			  <div class="form-group">
-				<div class="form-row">
-				  <div class="col-md-6">
-					<input class="form-control" name="course[]" type="text" required>
-				  </div>
-				  <div class="col-md-6">
-					<select id="select_professor" name="professor[]" class="form-control"><option value="">---</option></select>
-				  </div>
-				</div>
-			  </div>
+			
 			  
-			<hr>
-		  </div>
-		  <div class="form-group">
+			  <div class="form-group">
 				<div class="form-row">
-				  <div class="col-md-7"></div>
-				  <div class="col-md-5"><a href="professor_reg.html">Add new professor</a></div>
+				  <div class="col-md-6">
+					<label >Course 1</label>
+					<input class="form-control" name="course1[]" type="text" required>
+				  </div>
+				  <div class="col-md-6">
+					<label >Dr.</label>
+					<select id="professors" class="form-control" name="professor1[]">
+					</select>
+					<!--<input class="form-control" name="course1" type="text" required>-->
+				  </div>
 				</div>
-			</div>
-			<hr>
+			  </div>
+			  <div class="form-group">
+				<div class="form-row">
+				  <div class="col-md-6">
+					<label >Course 2</label>
+					<input class="form-control" name="course2[]" type="text" required>
+				  </div>
+				  <div class="col-md-6">
+					<label >Dr.</label>
+					<select class="form-control" name="professor2[]">
+					</select>
+					<!--<input class="form-control" name="course2" type="text"required>-->
+				  </div>
+				</div>
+			  </div>
+			  <hr>
+		  </div>
+		  
 		  
           <!--<a class="btn btn-primary btn-block" href="login.html">Register</a>-->
 		  <input type="submit" name="add_degree" class="btn btn-primary btn-block" value="Create" id="register">

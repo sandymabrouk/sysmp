@@ -1,58 +1,54 @@
 
 function addCourses(){
 	
-	var number_of_semesters = document.getElementById("number_of_semesters").value;
-	alert(number_of_semesters);
+	var number_of_terms = document.getElementById("number_of_terms").value;
+	alert(number_of_terms);
 }
 
-$('#number_of_semesters').change(function(event) {
-	var number_of_semesters = $('#number_of_semesters').val();
-	//alert(number_of_semesters);
+$('#number_of_terms').change(function(event) {
+	var number_of_terms = $('#number_of_terms').val();
+	//alert(number_of_terms);
 	
 	$("#courses_group div").remove();
 	$("#courses_group hr").remove();
-	 for (var i = 0; i < number_of_semesters; i++) 
+	 for (var i = 0; i < number_of_terms; i++) 
     {
-		var design = '<hr><div class="form-group"><label for="number_of_semesters">- Semester '+(i+1)+'</label></div>';
+		var design = '<hr><div class="form-group"><label for="number_of_terms">- Round '+(i+1)+'</label></div>';
+		
+		design += '<div class="form-group">'+
+						'<div class="form-row">'+
+						  '<div class="col-md-6">'+
+							'<label >Start Date</label>'+
+							'<input class="form-control" name="start_date[]" type="date" required>'+
+						  '</div>'+
+						  '<div class="col-md-6">'+
+							'<label >End Date</label>'+
+							'<input class="form-control" name="end_date[]" type="date" required>'+
+						  '</div>'+
+						'</div>'+
+				  '</div>';
+		  
 		design += '<div class="form-group">'+
 				'<div class="form-row">'+
 				  '<div class="col-md-6">'+
-					'<label >Course title</label>'+
-					'<input class="form-control" name="course[]" type="text" required>'+
+					'<label >Course 1</label>'+
+					'<input class="form-control" name="course1[]" type="text" required>'+
 				  '</div>'+
 				  '<div class="col-md-6">'+
-					'<label >By professor</label>'+
-					'<select id="select_professor" name="professor[]" class="form-control"><option value="">---</option></select>'+
-				  '</div>'+
-				'</div>'+
-			  '</div>'+
-			  '<div class="form-group">'+
-				'<div class="form-row">'+
-				  '<div class="col-md-6">'+
-					'<input class="form-control" name="course[]" type="text" required>'+
+					'<label >Dr.</label>'+
+					'<select name="professor1[]" class="form-control">'+
+					'</select>'+
+					'<!--<input class="form-control" name="course1[]" type="text" required>-->'+
 				  '</div>'+
 				  '<div class="col-md-6">'+
-					'<select id="select_professor" name="professor[]" class="form-control"><option value="">---</option></select>'+
-				  '</div>'+
-				'</div>'+
-			  '</div>'+
-			  '<div class="form-group">'+
-				'<div class="form-row">'+
-				  '<div class="col-md-6">'+
-					'<input class="form-control" name="course[]" type="text" required>'+
+					'<label >Course 2</label>'+
+					'<input class="form-control" name="course2[]" type="text" required>'+
 				  '</div>'+
 				  '<div class="col-md-6">'+
-					'<select id="select_professor" name="professor[]" class="form-control"><option value="">---</option></select>'+
-				  '</div>'+
-				'</div>'+
-			  '</div>'+
-			  '<div class="form-group">'+
-				'<div class="form-row">'+
-				  '<div class="col-md-6">'+
-					'<input class="form-control" name="course[]" type="text" required>'+
-				  '</div>'+
-				  '<div class="col-md-6">'+
-					'<select id="select_professor" name="professor[]" class="form-control"><option value="">---</option></select>'+
+					'<label >Dr.</label>'+
+					'<select name="professor2[]" class="form-control">'+
+					'</select>'+
+					'<!--<input class="form-control" name="course1" type="text" required>-->'+
 				  '</div>'+
 				'</div>'+
 			  '</div>';
@@ -60,29 +56,6 @@ $('#number_of_semesters').change(function(event) {
 		$('#courses_group').append(design);
 	}
 	$('#courses_group').append('<hr>');
+	op('professor1[]','../../json/professors.php','professor_email','name'); op('professor2[]','../../json/professors.php','professor_email','name');
 	
 });
-
-function getJson(url){
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function() {
-	if (this.readyState == 4 && this.status == 200) {
-			var myArr = JSON.parse(this.responseText);
-			addToSelect(myArr);
-				
-		}
-	};
-	xmlhttp.open("GET", url, true);
-	xmlhttp.send();
-}
-	
-function addToSelect(r){
-	options = '<option value="%data1%">%data2%</option>';
-	for (i=0;i<r.length;i++){
-		rr = document.getElementsByName("professor[]");
-		for (ii=0;ii<rr.length;ii++){
-			rr[ii].innerHTML = rr[ii].innerHTML + options.replace("%data1%",r[i]["professor_email"]).replace("%data2%",r[i]["name"]);
-		}
-	}
-}
-	

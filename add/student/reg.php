@@ -1,7 +1,7 @@
 <?php
 // Seif Elsallamy
 if (isset($_POST["reg_submit"])){
-require ('../../randpw.php');
+//require ('../../randpw.php');
 require ('../../db.php');
 
 $name = $_POST["reg_name"];
@@ -10,62 +10,62 @@ $address = $_POST["reg_address"];
 $degree = $_POST["reg_degree"];
 $mobile = $_POST["reg_mobile"];
 $email = $_POST["reg_email"];
-$semester = $_POST["reg_semester"];
+//$semester = $_POST["reg_semester"];
 $campus = $_POST["reg_campus"];
 $cohort = $_POST["reg_cohort"];
+$code = $_POST["identity_number"];
 
+//$pass = randomPassword(8,1,"lower_case,upper_case,numbers,special_symbols")[0];
 
-$sql = "INSERT INTO students (name, email, birthdate, semester, campus, cohort, mobile, address, , degree_id)
-VALUES ('$name', '$email', '$date', '$semester', '$campus', '$cohort', '$mobile', '$address', '$degree')";
+$sql = "INSERT INTO students (code, name, email, birthdate, campus, cohort, mobile, address)
+VALUES ('$code', '$name', '$email', '$date', '$campus', '$cohort', '$mobile', '$address')";
 
 
 
 if (mysqli_query($conn, $sql)) {
-    $code = mysqli_insert_id($conn);
+    echo "success";
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+
+$sql = "INSERT INTO students_degrees (code, degree_id)
+VALUES ('$code', '$degree')";
+
+
+
+if (mysqli_query($conn, $sql)) {
+    echo "success";
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
 
 
+$sql = "SELECT course_id from courses_degrees WHERE degree_id='$degree'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // adding student scores
+    while($row = $result->fetch_assoc()) {
+        $course = $row["course_id"];
+		$sql = "INSERT INTO students_score (code, course_id)
+VALUES ('$code', '$course')";
+
+if (mysqli_query($conn, $sql)) {
+    echo "success";
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+    }
+} else {
+    echo "0 results";
+}
+
 
 $conn->close();
 
-echo "Student code: " . $code . "<br>";
-echo "Student Password: " . $pass;
 }
 
 ?>
 
-<!-- Rwan Al dagher -->
-<!DOCTYPE html>
-<html>
-<head>
-	
-	<script src="javascript/present.js"></script>
-    
-	
-	<style>
-        table, th, td 
-        {
-            margin:10px 0;
-            border:solid 1px #333;
-            padding:2px 4px;
-            font:15px Verdana;
-        }
-        th {
-            font-weight:bold;
-        }
-    </style>
-</head>
-<body onload="<?php echo "getJson('json/courses.php?semester=" . $semester . "');" ; ?>">
-	<div class="container">
-	<div class="row">
-	<div class="col-md-12">
-    <div id="showData"></div>
-	</div>
-	</div>
-	</div>
-</body>
 
-</html>
 
