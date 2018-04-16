@@ -1,4 +1,4 @@
 <?php
 require("json.php");
-displayTable("courses");
+displayTable("courses", "course_id, name");
 ?>
