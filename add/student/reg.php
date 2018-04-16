@@ -15,7 +15,7 @@ $campus = $_POST["reg_campus"];
 $cohort = $_POST["reg_cohort"];
 $code = $_POST["identity_number"];
 
-//$pass = randomPassword(8,1,"lower_case,upper_case,numbers,special_symbols")[0];
+//$pass = randomPassword(8,1,"lower_case,upper_case,numbers,special_symbols")[0]; //Nour Kilany
 
 $sql = "INSERT INTO students (code, name, email, birthdate, campus, cohort, mobile, address)
 VALUES ('$code', '$name', '$email', '$date', '$campus', '$cohort', '$mobile', '$address')";
